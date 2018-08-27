@@ -17,7 +17,7 @@ public class ConnectFourAgainGUI {
 	}
 	static int testDiagonal1(int i, int j, int n){//The following code is a series of recursions that make up the win-checking engine
         if (n == 3) {
-            return 1;
+        	return 1;
         }
         if (board[i][j]!=0 && n<3){
             if ((i+1)<6 && (j+1)<7 && board[i+1][j+1] == board[i][j]){

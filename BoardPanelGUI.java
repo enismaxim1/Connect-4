@@ -24,6 +24,7 @@ public class BoardPanelGUI extends JPanel {
         setSize(size);
     }
     int k;
+ 
     public void addComponents() {
         System.out.println("addComponents");
         super.setLayout(null);
@@ -32,7 +33,7 @@ public class BoardPanelGUI extends JPanel {
             ConnectFourButtonAgainGUI button;
             button = new ConnectFourButtonAgainGUI(k);
             button.setPreferredSize(new Dimension(70, 70));
-            button.setBounds(k*70, 0, 70, 70);
+            button.setBounds(k*70, 0, 70, 490);
             button.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     Integer[] point = new Integer[2];
@@ -55,10 +56,14 @@ public class BoardPanelGUI extends JPanel {
 	                        }
 	                    	repaint();
 	                    	done=true;
+	                    	
 	                    }
                     }
                 }
             });
+            button.setOpaque(false);
+            button.setContentAreaFilled(false);
+            button.setBorderPainted(false);
             topButtons[k] = button;
             super.add(topButtons[k]);
         }
@@ -84,7 +89,7 @@ public class BoardPanelGUI extends JPanel {
         System.out.println("Vertical 'drawn'");
 
         g.setColor(Color.gray);
-        for (int y=1; y<8; y++) {
+        for (int y=1; y<7; y++) {
             for (int x=0; x<7; x++) {
                 g.fillOval(x*squareLength, y*squareLength, squareLength, squareLength);
             }
